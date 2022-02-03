@@ -1,12 +1,7 @@
-x = int
-y = int
+x = int(input('Please enter a number: ')) #prompts user number input
+y = int(input('Please enter a second number: ')) #prompts user number input
 
-
-x = int(input('Please enter a number: '))
-y = int(input('Please enter a second number: '))
-
-sum = x + y
+Total = x + y #sums the two inputs
     
-
-print("The sum of your numbers is:", sum)
+print("The sum of your numbers is:", Total) #outputs the answer
       
