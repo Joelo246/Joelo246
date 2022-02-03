@@ -1,3 +1,5 @@
+// you should add comments
+
 x = int(input('Please enter a number: ')) #prompts user number input
 y = int(input('Please enter a second number: ')) #prompts user number input
 

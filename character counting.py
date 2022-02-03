@@ -1,3 +1,5 @@
+// haha, i can just do this
+
 x = str(input("Please enter a word: "))
 dictionary = {}
 for character in x:
