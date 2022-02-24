@@ -11,39 +11,46 @@ UpCount = 0
 DownCount = 0 #these three will hold all our compiled totals
 CurrentDepth = 0 #downcount minus upcount
 LineCount = 0 # this one is just for error checks
+FinalAnswer = 0
 
 with open(SubMovement) as data_file: #this loop is to separate the data file into three groups of numbers
         for line in data_file:
             if line.startswith("down"):
-                m = re.findall(r'[0-9]', line)
-                DownArray.append(m)
-                LineCount = LineCount+1
+                m = re.findall('[0-9]', line)
+                for item in m:
+                    DownArray.append(int(item))
+                    LineCount = LineCount+1
 #                while line not in string.digits:
 #                    def check(line):
 #                        for letter in line:
 #                            if letter not in string.digits:
-#                                del(letter)
-                
+#                                del(letter)                
             if line.startswith("up"):
                 u = re.findall(r'[0-9]', line)
-                UpArray.append(u)
-                LineCount = LineCount+1
+                for itemu in u:
+                    UpArray.append(int(itemu))
+                    LineCount = LineCount+1
             if line.startswith("forward"):
                 f = re.findall(r'[0-9]', line)
-                ForwardArray.append(f)
-                LineCount = LineCount+1
+                for itemf in f:
+                    ForwardArray.append(int(itemf))
+                    LineCount = LineCount+1
  
 print(DownArray)
 print(UpArray)
 print(ForwardArray)
-print(LineCount)
-DownArrayNumbers = int(DownArray)
-DownCount = sum(DownArrayNumbers)
+print("Here's the total line count!", LineCount)
+#DownArrayNumbers = [int(DownArray, base=16) for num in DownArray]
+DownCount = sum(DownArray)
 UpCount = sum(UpArray)
 ForwardCount = sum(ForwardArray)
-print(DownCount)
-print(UpCount)
-print(ForwardCount)
+print("Here's the total DownCount!", DownCount)
+print("Here's the total Upcount!", UpCount)
+print("Here's the total ForwardCount!", ForwardCount)
+CurrentDepth = (DownCount - UpCount)
+print("Current Depth (Down minus up)", CurrentDepth)
+FinalAnswer = (ForwardCount * CurrentDepth)
+print("Forward multiplied by depth!", FinalAnswer)
 
 #def check(DownArray):
 #    for letter in DownArray:
